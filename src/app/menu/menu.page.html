@@ -1,0 +1,29 @@
+<ion-split-pane contentId="content">
+    <ion-menu contentId="content" side="end">
+      <ion-header>
+        <ion-toolbar color="black" >
+          <ion-buttons slot="end">
+            <ion-button (click)="closeMenu()" >
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>CBD</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" routerDirection="root" *ngFor="let p of pages">
+            <ion-item [routerLink]="p.url" [class.active-item]="selectedPath.startsWith(p.url)">
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+  
+          <ion-item tappable routerLink="/login" routerDirection="root">
+            <ion-icon name="log-out-outline" slot="start"></ion-icon>
+            Logout
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>    
+    <ion-router-outlet id="content" main></ion-router-outlet>
+  </ion-split-pane>

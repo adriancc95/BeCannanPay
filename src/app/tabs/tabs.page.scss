@@ -1,8 +1,15 @@
-*{
-    font-size: medium;
+ion-tab-bar {
+    --background: var(--ion-color-secondary);
+    opacity: 0.78;
 }
 
-.icon-tab{
-    width: 30px;
-    height: 30px;
+ion-icon {
+    font-size: 20px;
+    color: var(--ion-color-primary);
+}
+
+ion-label {
+    color: white;
+    font-size: medium;
+    font-family: RockwellStd-ExtraBold;
 }
