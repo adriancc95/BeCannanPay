@@ -10,7 +10,7 @@
           <ion-title>CBD</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
+      <ion-content class="menuContent">
         <ion-list>
           <ion-menu-toggle auto-hide="false" routerDirection="root" *ngFor="let p of pages">
             <ion-item [routerLink]="p.url" [class.active-item]="selectedPath.startsWith(p.url)">
@@ -23,6 +23,9 @@
             Logout
           </ion-item>
         </ion-list>
+        
+        <!-- <ion-label>BLOCKCANNAN ®</ion-label> -->
+        
       </ion-content>
     </ion-menu>    
     <ion-router-outlet id="content" main></ion-router-outlet>

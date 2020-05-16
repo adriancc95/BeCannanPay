@@ -1,10 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="content-login" padding>
+  <figure>
+    <img class="name" src="../assets/img/becannanpay.png" alt="">
+  </figure>
+  <figure>
+    <img class="center" src="../assets/img/logo1.png" alt="">
+  </figure>
 
-<ion-content padding>
-  <ion-button expand="block" routerLink="/menu/tabs">Login</ion-button>
-
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+  </form>
+ 
+  <ion-button class="bottom" color="secondary" expand="block" routerLink="/menu/tabs">Login</ion-button>
+  
 </ion-content>

@@ -36,3 +36,15 @@ ion-toolbar {
 ion-card {
     text-align: center;
 }
+
+ion-content {
+    --background: none;
+    background-image: url('/assets/img/background.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+ion-content.menuContent {
+      --background: transparent linear-gradient(90deg, #D8D8D8 0%, #FFFFFF 89%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+}
