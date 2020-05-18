@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  },  {
+    path: 'free',
+    loadChildren: () => import('./free/free.module').then( m => m.FreePageModule)
   }
+
 
 ];
 @NgModule({

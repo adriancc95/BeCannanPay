@@ -6,7 +6,7 @@
     <img class="center" src="../assets/img/logo1.png" alt="">
   </figure>
 
-  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+  <form [formGroup]="loginForm">
     <ion-item>
       <ion-label>Email</ion-label>
       <ion-input formControlName="email"></ion-input>
