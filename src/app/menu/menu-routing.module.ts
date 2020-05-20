@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: () => import('../referral/referral.module').then( m => m.ReferralPageModule)
       },
       {
+        path: 'free',
+        loadChildren: () => import('../free/free.module').then( m => m.FreePageModule)
+      },
+      {
         path: 'about',
         loadChildren: () => import('../about/about.module').then( m => m.AboutPageModule)
       }

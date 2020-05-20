@@ -23,6 +23,10 @@ export class MenuPage implements OnInit {
       url: '/menu/referral'
     },
     {
+      title: 'Get Free',
+      url: '/menu/free'
+    },
+    {
       title: 'About us',
       url: '/menu/about'
     }
