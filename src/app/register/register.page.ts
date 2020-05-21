@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthenticateService } from '../services/authenticate.service';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegisterPage {
 
-  loginForm: FormGroup;
+  registerForm: FormGroup;
   validationMessages = {
+    DNI: [
+      { type: 'required', message: 'El email es requerido' }
+    ],
     email: [
       { type: 'required', message: 'El email es requerido' },
       { type: 'pattern', message: 'Email no valido'}
@@ -31,7 +34,13 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private storage: Storage
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
+      DNI: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required
+        ])
+      ),
       email: new FormControl(
         '',
         Validators.compose([
@@ -48,22 +57,7 @@ export class LoginPage implements OnInit {
       )
     });
   }
-
-  ngOnInit() {
+  register(userData) {
+    console.log(userData);
   }
-
-  loginUser(credentials) {
-    this.authService.loginUser(credentials).then(res=>{
-      this.errorMessage='';
-      this.storage.set('isUserLoggedIn', true);
-      this.navCtrl.navigateForward('/menu/tabs');
-    }).catch(err=>{
-      this.errorMessage = err;
-    });
-  }
-
-  goToRegister() {
-    this.navCtrl.navigateForward('/register');
-  }
-
 }

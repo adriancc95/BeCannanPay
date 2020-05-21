@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/login">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <figure>
+      <img class="name" src="../assets/img/becannanpay.png" alt="">
+    </figure>
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content class="content-login" padding>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+    <ion-item>
+      <ion-label>DNI</ion-label>
+      <ion-input formControlName="DNI"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validationMessages.email">
+        <div *ngIf="registerForm.get('DNI').hasError(validation.type) &&
+                    (registerForm.get('DNI').dirty || registerForm.get('DNI').touched)">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validationMessages.email">
+        <div *ngIf="registerForm.get('email').hasError(validation.type) &&
+                    (registerForm.get('email').dirty || registerForm.get('email').touched)">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label >Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let validation of validationMessages.password">
+        <div *ngIf="registerForm.get('password').hasError(validation.type) &&
+                    (registerForm.get('password').dirty || registerForm.get('password').touched)">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    {{errorMessage}}
+    <ion-button
+      color="secondary"
+      expand="full" 
+      [disabled]="!registerForm.valid"
+      type="submit"
+      >Register
+    </ion-button>
+  </form>
+</ion-content>
